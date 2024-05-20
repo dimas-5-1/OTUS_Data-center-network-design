@@ -122,6 +122,12 @@
 
         leaf-1# show running-configuration interface
         !
+        interface Loopback1
+        no shutdown
+        ip address 10.1.1.0/32
+        ip ospf area 0.0.0.0  
+        ip ospf network point-to-point 
+        !
         interface Ethernet1
         description to_spine-1
         mtu 9100
@@ -155,6 +161,12 @@
 
         leaf-2# show running-configuration interface 
         !
+        interface Loopback1
+        no shutdown
+        ip address 10.1.2.0/32
+        ip ospf area 0.0.0.0  
+        ip ospf network point-to-point 
+        !
         interface Ethernet1
         description to_spine-1
         mtu 9100
@@ -186,6 +198,12 @@
         area 0.0.0.0 
 
         leaf-3# show running-configuration interface 
+        !
+        interface Loopback1
+        no shutdown
+        ip address 10.1.3.0/32
+        ip ospf area 0.0.0.0  
+        ip ospf network point-to-point  
         !
         interface Ethernet1
         description to_spine-1
@@ -333,3 +351,24 @@
         ============ OSPF router routing table =============
         
         ============ OSPF external routing table ===========
+
+#### Проверка связности между Loopback leaf узлов
+ - от leaf-1
+
+        //to leaf-2//
+        leaf-1# leaf-1# ping 10.1.2.0
+        PING 10.1.2.0 (10.1.2.0) 56(84) bytes of data.
+        64 bytes from 10.1.2.0: icmp_seq=1 ttl=63 time=4.72 ms
+        64 bytes from 10.1.2.0: icmp_seq=2 ttl=63 time=2.89 ms
+        64 bytes from 10.1.2.0: icmp_seq=3 ttl=63 time=2.67 ms
+        64 bytes from 10.1.2.0: icmp_seq=4 ttl=63 time=3.35 ms
+        64 bytes from 10.1.2.0: icmp_seq=5 ttl=63 time=3.21 ms
+        64 bytes from 10.1.2.0: icmp_seq=6 ttl=63 time=2.56 ms
+        
+        //to leaf-3//
+        ping 10.1.3.0
+        PING 10.1.3.0 (10.1.3.0) 56(84) bytes of data.
+        64 bytes from 10.1.3.0: icmp_seq=1 ttl=63 time=6.86 ms
+        64 bytes from 10.1.3.0: icmp_seq=2 ttl=63 time=10.8 ms
+        64 bytes from 10.1.3.0: icmp_seq=3 ttl=63 time=3.17 ms
+        64 bytes from 10.1.3.0: icmp_seq=4 ttl=63 time=4.05 ms
