@@ -314,6 +314,12 @@
 
         spine-1# show ip ospf route
         ============ OSPF network routing table ============
+        N    10.1.1.0/32           [4] area: 0.0.0.0
+                via 10.2.1.1, Ethernet1
+        N    10.1.2.0/32           [4] area: 0.0.0.0
+                via 10.2.1.3, Ethernet2
+        N    10.1.3.0/32           [4] area: 0.0.0.0
+                via 10.2.1.5, Ethernet3
         N    10.2.1.0/31           [4] area: 0.0.0.0
                                 directly attached to Ethernet1
         N    10.2.1.2/31           [4] area: 0.0.0.0
@@ -335,6 +341,12 @@
 
         spine-2# show ip ospf route
         ============ OSPF network routing table ============
+        N    10.1.1.0/32           [4] area: 0.0.0.0
+                via 10.2.2.1, Ethernet1
+        N    10.1.2.0/32           [4] area: 0.0.0.0
+                via 10.2.2.3, Ethernet2
+        N    10.1.3.0/32           [4] area: 0.0.0.0
+                via 10.2.2.5, Ethernet3
         N    10.2.1.0/31           [8] area: 0.0.0.0
                 via 10.2.2.1, Ethernet1
         N    10.2.1.2/31           [8] area: 0.0.0.0
