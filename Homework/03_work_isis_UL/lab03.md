@@ -346,7 +346,7 @@
             10.2.2.3
             BFD is active, status Up
 
-        leaf-2
+        leaf-3
             Interface: Ethernet3, Level: 1, State: Up, Expires in 27s
             Adjacency flaps: 1, Last: 26m25s ago
             Circuit type: L1, Speaks: IPv4
