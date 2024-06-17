@@ -48,7 +48,8 @@ VNI: 10000
     - конфигурация AF l2vpn evpn
     - активация AF l2vpn evpn для peer group  
 
-Конфигурация underlay соответствует [eBGP underlay из lab04](/Homework/04_work_ebgp_UL/lab04.md)
+#### Конфигурация underlay соответствует [eBGP underlay из lab04](/Homework/04_work_ebgp_UL/lab04.md)
+#### Конфигурация клиентов соответствует [настройкам в lab05](/Homework/05_VXLAN_L2VNI/README.md#конфигурация-клиентов)
 
 ### Конфигурация оборудования
 
