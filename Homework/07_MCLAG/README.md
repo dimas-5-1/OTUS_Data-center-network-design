@@ -35,7 +35,7 @@
 #### Underlay eBGP
 #####  spines
  - Настройка интерфейсов Ethernet, Loopback
-   - Etnetrnet - ipv6
+   - Ethetrnet - ipv6
  - Настройка eBGP router
    - AS, RID
    - AF ipv4, AF l2vpn evpn
@@ -43,7 +43,7 @@
 
 #####  leafs
  - Настройка интерфейсов Ethernet, Loopback
-   - Etnernet в сторону spine - ipv6
+   - Ethernet в сторону spine - ipv6
  - Настройка eBGP router
    - AS, RID
    - AF ipv4, AF l2vpn evpn
