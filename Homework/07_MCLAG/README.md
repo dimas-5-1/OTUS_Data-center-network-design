@@ -799,6 +799,7 @@
 #### Агрегированное подключение клиента (Sonic Dell)
 
 - SrvBlue2
+
         config
         hostname SrvBlue2
         end
