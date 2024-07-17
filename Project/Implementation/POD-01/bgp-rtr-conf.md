@@ -1,0 +1,36 @@
+## Параметры BGP
+
+### Параметры маршрутизаторов
+
+|POD|	hostname|	router ID|	ASN|	VRF|	Router opts|	AF1|	AF1_opts|	AF2|	AF2_opts|
+|--|--|--|--|--|--|--|--|--|--|
+|1|	spine-1-1|	11.0.1.0|	1110000000|	|log-neighbor-changes bestpath as-path multipath-relax timers 3 9 |	ipv4 unicast| redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	|	|
+|1|	spine-1-2|	11.0.2.0|	1110000000|	| log-neighbor-changes bestpath as-path  multipath-relax timers 3 9|	ipv4 unicast| redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	|	|
+|1|	leaf-1-1|	11.1.1.0|	1120000001|	|log-neighbor-changes bestpath as-path multipath-relax timers 3 9|	ipv4 unicast | redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise-all-vni|
+|1|	leaf-1-1|	11.1.1.0|	1120000001|	Vrf_ADM| log-neighbor-changes timers 3 9|ipv4 unicast|  redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast  RD: 11.1.1.0:1000 RT export: 1020000000:1000 RT import: 1030000000:1000 |
+|1|	leaf-1-1|	11.1.1.0|	1120000001|	Vrf_CAD | log-neighbor-changes timers 3 9|ipv4 unicast| redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast  RD: 11.1.1.0:2000 RT export: 1020000000:2000 RT import: 1030000000:2000|
+|1|	leaf-1-1|	11.1.1.0|	1120000001|	Vrf_ASU| log-neighbor-changes timers 3 |ipv4 unicast| redistribute connected  maximum-paths 2  maximum-paths ibgp 1| l2vpn evpn|advertise ipv4 unicast RD: 11.1.1.0:3000 RT export: 1020000000:3000 RT import: 1030000000:3000|
+|1|	leaf-1-2|	11.1.2.0|	1120000001|	|log-neighbor-changes  bestpath as-path multipath-relax timers 3 9|	ipv4 unicast|redistribute connected  maximum-paths 2 maximum-paths ibgp 1|	l2vpn evpn|	advertise-all-vni|
+|1|	leaf-1-2|	11.1.2.0|	1120000001|	Vrf_ADM| log-neighbor-changes timers 3 9|	ipv4 unicast|redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast RD: 11.1.2.0:1000 RT export: 1020000000:1000 RT import: 1030000000:1000|
+|1|	leaf-1-2| 11.1.2.0|	1120000001|	Vrf_CAD| log-neighbor-changes timers 3 9|	ipv4 unicast|redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast RD: 11.1.2.0:3000 RT export: 1020000000:2000 RT import: 1030000000:2000|
+|1|	leaf-1-2|	11.1.2.0|	1120000001|	Vrf_ASU| log-neighbor-changes timers 3 9|	ipv4 unicast| redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast  RD: 11.1.2.0:3000 RT export: 1020000000:3000 RT import: 1030000000:3000|
+|1|	leaf-1-3|	11.1.3.0|	1120000002|	| log-neighbor-changes bestpath as-path multipath-relax timers 3 9|	ipv4 unicast|redistribute connected  maximum-paths 2 maximum-paths ibgp 1|	l2vpn evpn|	advertise-all-vni|
+|1|	leaf-1-3|11.1.3.0|	1120000002|	Vrf_ADM|	 log-neighbor-changes timers 3 9|	ipv4 unicast|redistribute connected  maximum-paths 2 maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast RD: 11.1.3.0:1000 RT export: 1020000000:1000 RT import: 1030000000:1000|
+|1|	leaf-1-3|	11.1.3.0|	1120000002|	Vrf_CAD|	 log-neighbor-changes timers 3 9|	ipv4 unicast| redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast RD: 11.1.3.0:2000 RT export: 1020000000:2000 RT import: 1030000000:2000|
+|1|	leaf-1-3|	11.1.3.0|	1120000002|	Vrf_ASU| log-neighbor-changes timers 3 9|	ipv4 unicast|	redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast  RD: 11.1.3.0:3000 RT export: 1020000000:3000 RT import: 1030000000:3000|
+|1|	leaf-1-4|	11.1.4.0|	1120000002|	| log-neighbor-changes bestpath as-path multipath-relax timers 3 9|	ipv4 unicast| redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise-all-vni|
+|1|	leaf-1-4|	11.1.4.0|	1120000002|	Vrf_ADM|	 log-neighbor-changes timers 3 9|	ipv4 unicast|	  redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast RD: 11.1.4.0:1000 RT export: 1020000000:1000 RT import: 1030000000:1000|
+|1|	leaf-1-4|	11.1.4.0|	1120000002|	Vrf_CAD|	 log-neighbor-changes timers 3 9|	ipv4 unicast|redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast         RD: 11.1.4.0:1000 RT export: 1020000000:2000 RT import: 1030000000:2000|
+|1|	leaf-1-4|	11.1.4.0|	1120000002|	Vrf_ASU|	log-neighbor-changes timers 3 9|	ipv4 unicast|	  redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast  RD: 11.1.4.0:1000 RT export: 1020000000:3000 RT import: 1030000000:3000|
+|1|	border-1-1|	11.150.1.0|	1130000001|	|	 log-neighbor-changes bestpath as-path multipath-relax timers 3 9|	ipv4 unicast|redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise-all-vni|
+|1|	border-1-1|	11.150.1.0|	1130000001|	Vrf_ADM| log-neighbor-changes timers 3 9|	ipv4 unicast|	  redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast RD: 11.150.1.0:1000 RT export: 1030000000:1000 RT import: 1020000000:1000|
+|1|	border-1-1|	11.150.1.0|	1130000001|	Vrf_CAD|	 log-neighbor-changes timers 3 9|	ipv4 unicast|	  redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast RD: 11.150.1.0:2000 RT export: 1030000000:2000 RT import: 1020000000:2000|
+|1|	border-1-1|	11.150.1.0|	1130000001|	Vrf_ASU|	 log-neighbor-changes timers 3 9|	ipv4 unicast|	  redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast RD: 11.150.1.0:3000 RT export: 1030000000:3000 RT import: 1020000000:3000|
+|1|	border-1-2|	11.150.2.0|	1130000002|	|log-neighbor-changes bestpath as-path multipath-relax timers 3 9|	ipv4 unicast| redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise-all-vni|
+|1|	border-1-2|	11.150.2.0|	1130000002|	Vrf_ADM|	 log-neighbor-changes timers 3 9|	ipv4 unicast|	  redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast RD: 11.150.2.0:1000 RT export: 1030000000:1000 RT import: 1020000000:1000|
+|1|	border-1-2|	11.150.2.0|	1130000002|	Vrf_CAD|	 log-neighbor-changes timers 3 9|	ipv4 unicast|	  redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast RD: 11.150.2.0:2000 RT export: 1030000000:2000 RT import: 1020000000:2000|
+|1|	border-1-2|	11.150.2.0|	1130000002|	Vrf_ASU|	 log-neighbor-changes timers 3 9|	ipv4 unicast|	  redistribute connected  maximum-paths 2  maximum-paths ibgp 1|	l2vpn evpn|	advertise ipv4 unicast RD: 11.150.2.0:3000 RT export: 1030000000:3000 RT import: 1020000000:3000|
+|1|	int-router-1|	11.200.1.0|	65000|	Vrf_ADM|	 log-neighbor-changes timers 3 9|	ipv4 unicast|	redistribute connected maximum-paths 2 maximum-paths ibgp 1|	|	|
+|1|	int-router-1|	11.200.1.0|	65000|	Vrf_CAD|	 log-neighbor-changes timers 3 9|	ipv4 unicast|	redistribute connected maximum-paths 2 maximum-paths ibgp 1|	|	|
+|1|	int-router-1|	11.200.1.0|	65000|	Vrf_ASU|	 log-neighbor-changes timers 3 9|	ipv4 unicast|	redistribute connected maximum-paths 2 maximum-paths ibgp 1|	|	|
+|1|	ext-router-1|	11.250.1.0|	64555|	Vrf_ADM|	 log-neighbor-changes timers 3 9|	ipv4 unicast|	redistribute connected maximum-paths 2 maximum-paths ibgp 1 import vrf Vrf_EXT|	|	|
